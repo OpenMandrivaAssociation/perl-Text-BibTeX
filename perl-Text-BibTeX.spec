@@ -16,7 +16,6 @@ Patch1:		%{name}-0.36.tests.patch
 BuildRequires:	btparse
 BuildRequires:	perl-devel
 BuildRequires:	btparse-devel >= 0.34-2mdk
-BuildRoot:	%{_tmppath}/%{name}-%{version}
 
 %description
 The Text::BibTeX module serves mainly as a high-level introduction to the
