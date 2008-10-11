@@ -1,7 +1,7 @@
 %define module	Text-BibTeX
 %define name	perl-%{module}
-%define version 0.37
-%define release %mkrel 6
+%define version 0.38
+%define release %mkrel 1
 
 Name:		%{name}
 Version:	%{version}
