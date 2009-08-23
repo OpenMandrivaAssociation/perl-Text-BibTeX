@@ -1,17 +1,15 @@
-%define module	Text-BibTeX
-%define name	perl-%{module}
-%define version 0.38
-%define release %mkrel 1
+%define upstream_name       Text-BibTeX
+%define upstream_version    0.38
 
-Name:		%{name}
-Version:	%{version}
-Release:	%{release}
+Name:       perl-%{upstream_name}
+Version:    %perl_convert_version %{upstream_version}
+Release:    %mkrel 1
 Summary:	Interface to read and parse BibTeX files 
 License:	GPL or Artistic
 Group:		Development/Perl
-Source:		ftp://ftp.perl.org/pub/CPAN/modules/by-module/Text/%{module}-%{version}.tar.bz2
-Url:		http://search.cpan.org/dist/%{module}
-Patch0:		%{name}-0.36.Makefile.PL.patch
+Url:        http://search.cpan.org/dist/%{upstream_name}
+Source:     http://www.cpan.org/modules/by-module/Text/%{upstream_name}-%{upstream_version}.tar.gz
+Patch0:		Text-BibTeX-0.38-Makefile.patch
 Patch1:		%{name}-0.36.tests.patch
 BuildRequires:	btparse
 BuildRequires:	perl-devel
@@ -27,8 +25,8 @@ whole library that isn't available in the documentation for the individual
 modules that comprise it.
 
 %prep
-%setup -q -n %{module}-%{version}
-%patch0
+%setup -q -n %{upstream_name}-%{upstream_version} 
+%patch0 -p 1
 %patch1
 perl -pi -e 's|#!/usr/local/bin/perl5?|#!/usr/bin/perl|' btformat btcheck btsort examples/*
 
