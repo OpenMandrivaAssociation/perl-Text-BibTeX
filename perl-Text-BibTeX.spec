@@ -1,19 +1,21 @@
 %define upstream_name       Text-BibTeX
-%define upstream_version    0.38
+%define upstream_version 0.40
 
 Name:       perl-%{upstream_name}
 Version:    %perl_convert_version %{upstream_version}
 Release:    %mkrel 1
+
 Summary:	Interface to read and parse BibTeX files 
-License:	GPL or Artistic
+License:	GPL+ or Artistic
 Group:		Development/Perl
 Url:        http://search.cpan.org/dist/%{upstream_name}
-Source:     http://www.cpan.org/modules/by-module/Text/%{upstream_name}-%{upstream_version}.tar.gz
-Patch0:		Text-BibTeX-0.38-Makefile.patch
-Patch1:		%{name}-0.36.tests.patch
+Source0:    http://www.cpan.org/modules/by-module/Text/%{upstream_name}-%{upstream_version}.tar.gz
+Patch0:		%{upstream_name}-0.40-format-security-error.patch
+
 BuildRequires:	btparse
-BuildRequires:	perl-devel
 BuildRequires:	btparse-devel >= 0.34-2mdk
+BuildRequires:	perl-devel
+
 BuildRoot:	%{_tmppath}/%{name}-%{version}
 
 %description
@@ -26,22 +28,21 @@ modules that comprise it.
 
 %prep
 %setup -q -n %{upstream_name}-%{upstream_version} 
-%patch0 -p 1
-%patch1
-perl -pi -e 's|#!/usr/local/bin/perl5?|#!/usr/bin/perl|' btformat btcheck btsort examples/*
+%patch0
+perl -pi -e 's|#!/usr/local/bin/perl5?|#!/usr/bin/perl|' scripts/* examples/*
 
 %build
-%{__perl} Makefile.PL INSTALLDIRS=vendor MYEXTLIB='%{_libdir}/libbtparse.so'
-%make
-
-%install
-rm -rf %{buildroot}
-%makeinstall_std
-install -d -m 755 %{buildroot}%{_bindir}
-install -m 755 btformat btcheck btsort %{buildroot}%{_bindir}
+%{__perl} Build.PL installdirs=vendor
+./Build
 
 %check
-make test
+./Build test
+
+%install
+%{__rm} -rf %{buildroot}
+./Build install destdir=%{buildroot}
+#install -d -m 755 %{buildroot}%{_bindir}
+#install -m 755 btformat btcheck btsort %{buildroot}%{_bindir}
 
 %clean 
 rm -rf %{buildroot}
@@ -53,5 +54,4 @@ rm -rf %{buildroot}
 %{perl_vendorarch}/auto/Text
 %{_mandir}/*/*
 %{_bindir}/*
-
-
+/usr/lib/*
