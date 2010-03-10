@@ -14,6 +14,7 @@ Patch0:		%{upstream_name}-0.40-format-security-error.patch
 
 BuildRequires:	btparse
 BuildRequires:	btparse-devel >= 0.34-2mdk
+BuildRequires:	perl(Capture::Tiny)
 BuildRequires:	perl(Config::AutoConf)
 BuildRequires:	perl-devel
 
