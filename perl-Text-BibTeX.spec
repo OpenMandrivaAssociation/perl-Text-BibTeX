@@ -3,7 +3,7 @@
 
 Name:       perl-%{upstream_name}
 Version:    %perl_convert_version %{upstream_version}
-Release:    %mkrel 1
+Release:    %mkrel 2
 
 Summary:	Interface to read and parse BibTeX files 
 License:	GPL+ or Artistic
@@ -45,6 +45,7 @@ perl -pi -e 's|#!/usr/local/bin/perl5?|#!/usr/bin/perl|' scripts/* examples/*
 ./Build install destdir=%{buildroot}
 #install -d -m 755 %{buildroot}%{_bindir}
 #install -m 755 btformat btcheck btsort %{buildroot}%{_bindir}
+mv %{buildroot}%{_bindir}/bibparse %{buildroot}%{_bindir}/bibparse-perl
 
 %clean 
 rm -rf %{buildroot}
@@ -56,4 +57,4 @@ rm -rf %{buildroot}
 %{perl_vendorarch}/auto/Text
 %{_mandir}/*/*
 %{_bindir}/*
-/usr/lib/*
+/usr/lib/libbtparse.so
