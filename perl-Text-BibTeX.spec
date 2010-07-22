@@ -1,9 +1,9 @@
-%define upstream_name       Text-BibTeX
+%define upstream_name    Text-BibTeX
 %define upstream_version 0.45
 
 Name:       perl-%{upstream_name}
 Version:    %perl_convert_version %{upstream_version}
-Release:    %mkrel 2
+Release:    %mkrel 3
 
 Summary:	Interface to read and parse BibTeX files 
 License:	GPL+ or Artistic
