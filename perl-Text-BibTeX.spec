@@ -11,8 +11,6 @@ Group:		Development/Perl
 Url:        http://search.cpan.org/dist/%{upstream_name}
 Source0:    http://www.cpan.org/modules/by-module/Text/%{upstream_name}-%{upstream_version}.tar.gz
 
-BuildRequires:	btparse
-BuildRequires:	btparse-devel >= 0.34-2mdk
 BuildRequires:	perl(Capture::Tiny)
 BuildRequires:	perl(Config::AutoConf)
 BuildRequires:	perl-devel
