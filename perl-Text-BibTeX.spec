@@ -1,5 +1,5 @@
 %define upstream_name    Text-BibTeX
-%define upstream_version 0.46
+%define upstream_version 0.48
 
 Name:       perl-%{upstream_name}
 Version:    %perl_convert_version %{upstream_version}
@@ -13,6 +13,7 @@ Source0:    http://www.cpan.org/modules/by-module/Text/%{upstream_name}-%{upstre
 
 BuildRequires:	perl(Capture::Tiny)
 BuildRequires:	perl(Config::AutoConf)
+BuildRequires:	perl(ExtUtils::LibBuilder)
 BuildRequires:	perl-devel
 
 BuildRoot:	%{_tmppath}/%{name}-%{version}
