@@ -14,6 +14,7 @@ Source0:    http://www.cpan.org/modules/by-module/Text/%{upstream_name}-%{upstre
 BuildRequires:	perl(Capture::Tiny)
 BuildRequires:	perl(Config::AutoConf)
 BuildRequires:	perl(ExtUtils::LibBuilder)
+BuildRequires:	perl(Module::Build)
 BuildRequires:	perl-devel
 
 BuildRoot:	%{_tmppath}/%{name}-%{version}
