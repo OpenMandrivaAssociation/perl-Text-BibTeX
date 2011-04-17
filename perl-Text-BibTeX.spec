@@ -3,13 +3,14 @@
 
 Name:       perl-%{upstream_name}
 Version:    %perl_convert_version %{upstream_version}
-Release:    %mkrel 1
+Release:    %mkrel 2
 
 Summary:	Interface to read and parse BibTeX files 
 License:	GPL+ or Artistic
 Group:		Development/Perl
 Url:        http://search.cpan.org/dist/%{upstream_name}
 Source0:    http://www.cpan.org/modules/by-module/Text/%{upstream_name}-%{upstream_version}.tar.gz
+Patch0:     Text-BibTeX-0.53-fix-lib64.patch
 
 BuildRequires:	perl(Capture::Tiny)
 BuildRequires:	perl(Config::AutoConf)
@@ -29,6 +30,7 @@ modules that comprise it.
 
 %prep
 %setup -q -n %{upstream_name}-%{upstream_version} 
+%patch0 -p 1
 perl -pi -e 's|#!/usr/local/bin/perl5?|#!/usr/bin/perl|' scripts/* examples/*
 
 %build
@@ -55,4 +57,4 @@ rm -rf %{buildroot}
 %{perl_vendorarch}/auto/Text
 %{_mandir}/*/*
 %{_bindir}/*
-/usr/lib/libbtparse.so
+%{_libdir}/libbtparse.so
