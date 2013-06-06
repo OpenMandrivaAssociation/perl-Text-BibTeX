@@ -1,2 +1,4 @@
+removed_sources:
+  Text-BibTeX-0.58.tar.gz: fdb185c676dcf7b1e970aa2ab873dfc566bb07d4
 sources:
-  "Text-BibTeX-0.58.tar.gz": fdb185c676dcf7b1e970aa2ab873dfc566bb07d4
+  Text-BibTeX-0.66.tar.gz: 7c2b2797d42b686da188100f035d8c541436cbaf

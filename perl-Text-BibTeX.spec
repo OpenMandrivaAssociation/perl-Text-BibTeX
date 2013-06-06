@@ -1,15 +1,14 @@
 %define upstream_name    Text-BibTeX
-%define upstream_version 0.58
-
+%define upstream_version 0.66
 Name:		perl-%{upstream_name}
-Version:	%perl_convert_version %{upstream_version}
-Release:	3
+Version:	%perl_convert_version 0.66
+Release:	1
 
 Summary:	Interface to read and parse BibTeX files 
 License:	GPL+ or Artistic
 Group:		Development/Perl
 Url:        http://search.cpan.org/dist/%{upstream_name}
-Source0:    http://www.cpan.org/modules/by-module/Text/%{upstream_name}-%{upstream_version}.tar.gz
+Source0:    http://www.cpan.org/modules/by-module/Text/Text-BibTeX-0.66.tar.gz
 BuildRequires:	perl(Capture::Tiny)
 BuildRequires:	perl(Config::AutoConf)
 BuildRequires:	perl(ExtUtils::LibBuilder)
@@ -174,4 +173,5 @@ mv %{buildroot}%{_bindir}/bibparse %{buildroot}%{_bindir}/bibparse-perl
 
 * Tue Jun 21 2005 Guillaume Rousse <guillomovitch@mandriva.org> 0.34-1mdk 
 - first mdk release
+
 
