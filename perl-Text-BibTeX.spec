@@ -40,7 +40,7 @@ perl Build.PL installdirs=vendor
 mv %{buildroot}%{_bindir}/bibparse %{buildroot}%{_bindir}/bibparse-perl
 
 %files
-%doc CHANGES README examples
+%doc  README examples
 %{perl_vendorarch}/Text
 %{perl_vendorarch}/auto/Text
 %{_mandir}/*/*
