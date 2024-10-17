@@ -6,7 +6,7 @@ Release:	3
 Summary:	Interface to read and parse BibTeX files 
 License:	GPL+ or Artistic
 Group:		Development/Perl
-Url:        http://search.cpan.org/dist/%{upstream_name}
+Url:        https://search.cpan.org/dist/%{upstream_name}
 Source0:    http://www.cpan.org/modules/by-module/Text/%{upstream_name}-%{upstream_version}.tar.gz
 BuildRequires:	perl(Capture::Tiny)
 BuildRequires:	perl(Config::AutoConf)
